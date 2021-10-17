@@ -13,20 +13,28 @@
    
 
 <main class="container"> 
-    <div class="home-page mb-3">
+    <div class="home-page">
         <h1>Inscription</h1>
            {{ form_start(registrationForm) }}
+
+               
                 {{ form_row(registrationForm.name) }}
+              
                 {{ form_row(registrationForm.firstname) }}
+               
                 {{ form_row(registrationForm.birthday) }}
+               
                 {{ form_row(registrationForm.address) }}
+
                 {{ form_row(registrationForm.email) }}
+
                 {{ form_row(registrationForm.plainPassword, {
                     label: 'Password'
             }) }}
        
-
-        <a href="#" type="submit" class="btn">Je m'inscris</a>
+         <div class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" class="btn btn-lg">Je m'inscris</button>
+         </div>
     {{ form_end(registrationForm) }}
     </div>
 </main>

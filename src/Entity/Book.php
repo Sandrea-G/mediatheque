@@ -52,6 +52,11 @@ class Book
      */
     private $availble;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="books")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Book
     public function setAvailble(bool $availble): self
     {
         $this->availble = $availble;
+
+        return $this;
+    }
+
+    public function getUser(): ?user
+    {
+        return $this->user;
+    }
+
+    public function setUser(?user $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

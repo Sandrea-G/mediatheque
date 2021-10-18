@@ -16,7 +16,13 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return $this->render('admin/book.html.twig');
+        $repo = $this->getDoctrine()->getRepository(Book ::class);
+
+        $books = $repo->findAll();
+       
+        return $this->render('admin/book.html.twig', [
+            'books'=> $books,
+        ]);
     }
 
     public function configureDashboard(): Dashboard
@@ -30,7 +36,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Catalogue', 'fa fa-book');
 
         if ($this->isGranted('ROLE_EMPLOYE')) {
-        yield MenuItem::linkToCrud('Liste livre', 'fas fa-list', Book::class);
+        yield MenuItem::linkToCrud('Ajout livre', 'fas fa-plus-circle', Book::class);
         }
     }
 }

@@ -9,18 +9,20 @@
 </style>
 <div class="row">
 
-  
+  {% for book in books %}
     <div class="card col-md-4" style="width: 18rem;">
-        <img class="card-img-top" src="" alt="">
+      <img class="card-img-top" src="{{book.file}}" alt="{{book.title}}">
         <div class="card-body">
-            <h5 class="card-title"> </h5>
-            <p class="card-text"></p>
-            <p class="card-text">auteur: et parution:</p>
-            <a href="#" class="btn-sm"> Disponible</a>
+          <h5 class="card-title">{{book.title}}</h5>
+            <p class="card-text">{{book.description}}</p>
+            <p>{{book.category}} <small>de {{book.author}} Parution:{{book.publication}}</small></p>
+            <a href="#" class="btn-sm">{{book.availble}} Disponible</a>
+        </div>
     </div>
-</div>
     
-
+  {% endfor %}
+    
+</div>
 
 
 {% endblock %}

@@ -40,5 +40,6 @@ security:
         - { path: ^/(home/login/register), roles: IS_AUTHENTICATED_ANONYMOUSLY }
 
     role_hierarchy:
-       ROLE_EMPLOYE : ROLE_EMPLOYE, ROLE_INSCRIT
-       ROLE_INSCRIT : ROLE_INSCRIT
+
+        ROLE_INSCRIT: ROLE_INSCRIT
+        ROLE_EMPLOYE: ROLE_EMPLOYE, ROLE_INSCRIT

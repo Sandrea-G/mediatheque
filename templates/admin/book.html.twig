@@ -1,26 +1,39 @@
- {% extends "@EasyAdmin/layout.html.twig" %}
+{% extends "@EasyAdmin/layout.html.twig" %}
 
 
 {% block content %}
 <style>
+  h1{ text-align: center; font-family: 'Poppins', sans-serif; padding: 20px 20px; }
+  .card{}
   .btn-sm{ border: 1px solid; width: 100%; height: 50px; background: #4284a9; border: none;
           color: #f8f8f6; font-family: Lora; margin-top: 50px;transition: 0.2s;}
   .btn-sm:hover{ background: #f8f8f6; border: 2px solid #4284a9; color: #4284a9;}
+  
 </style>
+
 <div class="row">
+  <h1>Découvrez nos livres</h1>
 
   {% for book in books %}
-    <div class="card col-md-4" style="width: 18rem;">
-      <img class="card-img-top" src="{{book.file}}" alt="{{book.title}}">
-        <div class="card-body">
-          <h5 class="card-title">{{book.title}}</h5>
-            <p class="card-text">{{book.description}}</p>
-            <p>{{book.category}} <small>de {{book.author}} Parution:{{book.publication}}</small></p>
-            <a href="#" class="btn-sm">{{book.availble}} Disponible</a>
+      
+        <div class="card col-md-4 rounded-5 shadow-lg" style="width: 18rem;">
+          <img class="card-img-top" src="{{book.file}}" alt="{{book.title}}">
+            <div class="card-body">
+              <h5 class="card-title"><strong>{{book.title}}</strong></h5>
+                <p class="card-text">{{book.description}}</p>
+                <p><strong>{{book.category}}</strong><br>
+                <small>de {{book.author}}<br>
+                Parution: {{book.publication}}</small></p>
+
+                <a type:"submit" class="btn-sm">{{book.availble}}</a>
+            
+            </div>
         </div>
-    </div>
+      
     
   {% endfor %}
+
+  
     
 </div>
 
